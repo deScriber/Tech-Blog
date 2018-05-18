@@ -1,0 +1,56 @@
+
+.wooden_text {
+  font-family: 'Bilbo';
+  opacity: 1.0;
+  font-size: 45px;
+  color: #d3d3d3;
+}
+
+.strong_text {
+  font-family: 'Oswald', sans-serif;
+  color: #d3d3d3;
+}
+
+.blog_card {
+  background-color: #242424;
+  margin-top: 19px;
+}
+
+.subtle_text {
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.sub_text {
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+}
+
+.title_text {
+  font-family: 'Lora', serif;
+  font-size: 90px;
+  letter-spacing: 5px;
+}
+
+.item_text {
+  font-family: "Lora", serif;
+  font-size: 23px;
+  letter-spacing: 2px;
+  color: #d3d3d3;
+}
+
+.normal_text {
+  font-family: 'Lora', serif;
+}
+
+#connect-profile {
+  border-radius: 150px;
+}
+
+.page_section {
+  padding-top: 50px;
+  padding-bottom:275px;
+  margin-top: 0px;
+  margin-bottom: -150px;
+}
