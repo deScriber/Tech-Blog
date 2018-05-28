@@ -24,7 +24,7 @@ page_name = [
 
 def main():
     for i in page_name:
-        read_template = open("template/base.html").read()
+        read_template = open("templates/base.html").read()
         read_content = open(i["filename"]).read()
         finish_page = read_template.replace("{{content}}", read_content)
         open(i["filepath"], "w+").write(finish_page)
