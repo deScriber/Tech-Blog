@@ -21,10 +21,13 @@ page_name = [
     },
 ]
 
+
 def main():
     for i in page_name:
-        open(i["filename"]).read()
-        print(i["filename"])
+        read_template = open("template/base.html").read()
+        read_content = open(i["filename"]).read()
+        finish_page = read_template.replace("{{content}}", read_content)
+        open(i["filepath"], "w+").write(finish_page)
     # read_top = open('templates/top.html').read()
     # read_mid = open("content/index.html").read()
     # read_bottom = open("templates/bottom.html").read()
