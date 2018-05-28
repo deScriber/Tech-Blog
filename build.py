@@ -1,12 +1,12 @@
 page_name = [
     {
         "filename": "content/index.html",
-        "title": "Index",
+        "title": "Tyler Holsclaw",
         "filepath": "docs/index.html",
     },
     {
         "filename": "content/blog.html",
-        "title": "Blog",
+        "title": "Logic at Work",
         "filepath": "docs/blog.html",
     },
     {
@@ -26,8 +26,9 @@ def main():
     for i in page_name:
         read_template = open("templates/base.html").read()
         read_content = open(i["filename"]).read()
-        finish_page = read_template.replace("{{content}}", read_content)
+        finish_page = read_template.replace("{{content}}", read_content).replace("{{title}}", i["title"])
         open(i["filepath"], "w+").write(finish_page)
+
 
 
 if __name__ == "__main__":
