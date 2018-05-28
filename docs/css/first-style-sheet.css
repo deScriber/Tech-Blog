@@ -54,3 +54,7 @@
   margin-top: 0px;
   margin-bottom: -150px;
 }
+
+a:active {
+    background-color: teal;
+}
