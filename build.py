@@ -26,37 +26,39 @@ pages = [
 ]
 
 
-# def search_dictionaries(key, value, list_of_dictionaries):
-#     return [element for element in list_of_dictionaries if element[key] == value]
-
-
+# The main function opens and reads the base.html file and the value of the key
+# "filename" for each page which contains each pages respective html file paths.
+# It then uses the replace method to replace the {{content}} placeholder on the
+# base.html and stores that as a string in a variable. we then take that variable
+# and give the key "templated_content" the string as it's value.
 def main():
     for i in pages:
         read_template = open("templates/base.html").read()
         read_content = open(i["filename"]).read()
-        global add_content
         add_content = read_template.replace("{{content}}", read_content)
         i["templated_content"] = add_content
-        print(i["templated_content"])
-
-        # finish_page = read_template.replace("{{content}}", read_content).replace("{{title}}", i["title"])
-        # open(i["filepath"], "w+").write(finish_page)
 
 
-# def templatify(templated_content, add_content, pages):
-#     for i in pages:
-#         global templated_content
-#         templated_content = add_content.replace("{{title}}", i["title"])
-#         i["templated_content"] = templated_content
-#     return template_content
+# The template update function updates each string stored in the
+# "templated_content" key for each of our pages with the value from the key
+# "title" in the placeholder {{title}}. It then assigns the value of the updated
+# string to the "templated_content" key for further use. We can use this function
+#  to inject any more bells and whistles for templating in the future.
+def template_update():
+    for i in pages:
+        templated_content = i["templated_content"].replace("{{title}}", i["title"])
+        i["templated_content"] = templated_content
 
 
-# def compilate():
-#     for i in pages:
-#         open(i["filepath"], "w+").write(templated_content)
+# The publish function then takes the value of the key "templated_content" and
+# writes it to the value of the key "filepath" for each dict in the list pages, 
+# which routes to the websites html file paths.
+def publish():
+    for i in pages:
+        open(i["filepath"], "w+").write(i["templated_content"])
+
 
 if __name__ == "__main__":
     main()
-    # templatify()
-    # compilate()
-# print(finish_page)
+    template_update()
+    publish()
