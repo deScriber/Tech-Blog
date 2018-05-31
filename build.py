@@ -37,7 +37,8 @@ def main():
         read_content = open(i["filename"]).read()
         add_content = read_template.replace("{{content}}", read_content)
         i["templated_content"] = add_content
-
+    template_update()
+    publish()
 
 # The template update function updates each string stored in the
 # "templated_content" key for each of our pages with the value from the key
@@ -51,7 +52,7 @@ def template_update():
 
 
 # The publish function then takes the value of the key "templated_content" and
-# writes it to the value of the key "filepath" for each dict in the list pages, 
+# writes it to the value of the key "filepath" for each dict in the list pages,
 # which routes to the websites html file paths.
 def publish():
     for i in pages:
@@ -60,5 +61,3 @@ def publish():
 
 if __name__ == "__main__":
     main()
-    template_update()
-    publish()
