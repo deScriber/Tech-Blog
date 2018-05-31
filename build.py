@@ -27,9 +27,9 @@ pages = [
 
 
 # The main function opens and reads the base.html file and the value of the key
-# "filename" for each page which contains each pages respective html file paths.
+# "filename" for each page contains each pages respective html file paths.
 # It then uses the replace method to replace the {{content}} placeholder on the
-# base.html and stores that as a string in a variable. we then take that variable
+# base.html and stores that as a string in a variable. We then take that variable
 # and give the key "templated_content" the string as it's value.
 def main():
     for i in pages:
@@ -39,6 +39,7 @@ def main():
         i["templated_content"] = add_content
     template_update()
     publish()
+
 
 # The template update function updates each string stored in the
 # "templated_content" key for each of our pages with the value from the key
