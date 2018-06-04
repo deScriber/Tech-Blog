@@ -26,17 +26,17 @@ pages = [
 ]
 
 
-# The main function opens and reads the base.html file and the value of the key
+# The build_page function opens and reads the base.html file and the value of the key
 # "filename" for each page contains each pages respective html file paths.
 # It then uses the replace method to replace the {{content}} placeholder on the
 # base.html and stores that as a string in a variable. We then take that variable
 # and give the key "templated_content" the string as it's value.
-def main():
-    for i in pages:
+def build_page():
+    for page in pages:
         read_template = open("templates/base.html").read()
-        read_content = open(i["filename"]).read()
+        read_content = open(page["filename"]).read()
         add_content = read_template.replace("{{content}}", read_content)
-        i["templated_content"] = add_content
+        page["templated_content"] = add_content
     template_update()
     publish()
 
@@ -47,18 +47,18 @@ def main():
 # string to the "templated_content" key for further use. We can use this function
 #  to inject any more bells and whistles for templating in the future.
 def template_update():
-    for i in pages:
-        templated_content = i["templated_content"].replace("{{title}}", i["title"])
-        i["templated_content"] = templated_content
+    for page in pages:
+        templated_content = page["templated_content"].replace("{{title}}", page["title"])
+        page["templated_content"] = templated_content
 
 
 # The publish function then takes the value of the key "templated_content" and
 # writes it to the value of the key "filepath" for each dict in the list pages,
 # which routes to the websites html file paths.
 def publish():
-    for i in pages:
-        open(i["filepath"], "w+").write(i["templated_content"])
+    for page in pages:
+        open(page["filepath"], "w+").write(page["templated_content"])
 
 
 if __name__ == "__main__":
-    main()
+    build_page()
