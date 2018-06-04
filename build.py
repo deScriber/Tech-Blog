@@ -1,28 +1,28 @@
 pages = [
-    {
-        "filename": "content/index.html",
-        "title": "Tyler Holsclaw",
-        "filepath": "docs/index.html",
-        "templated_content": None,
-    },
-    {
-        "filename": "content/blog.html",
-        "title": "Logic at Work",
-        "filepath": "docs/blog.html",
-        "templated_content": None,
-    },
-    {
-        "filename": "content/projects.html",
-        "title": "Projects",
-        "filepath": "docs/projects.html",
-        "templated_content": None,
-    },
-    {
-        "filename": "content/connect.html",
-        "title": "Connect",
-        "filepath": "docs/connect.html",
-        "templated_content": None,
-    },
+    # {
+    #     "filename": "content/index.html",
+    #     "title": "Tyler Holsclaw",
+    #     "filepath": "docs/index.html",
+    #     "templated_content": None,
+    # },
+    # {
+    #     "filename": "content/blog.html",
+    #     "title": "Logic at Work",
+    #     "filepath": "docs/blog.html",
+    #     "templated_content": None,
+    # },
+    # {
+    #     "filename": "content/projects.html",
+    #     "title": "Projects",
+    #     "filepath": "docs/projects.html",
+    #     "templated_content": None,
+    # },
+    # {
+    #     "filename": "content/connect.html",
+    #     "title": "Connect",
+    #     "filepath": "docs/connect.html",
+    #     "templated_content": None,
+    # },
 ]
 
 
@@ -52,7 +52,7 @@ def template_update():
         page["templated_content"] = templated_content
 
 
-# The publish function then takes the value of the key "templated_content" and
+# The publish function then takes the value of the key "ttemplated_content" and
 # writes it to the value of the key "filepath" for each dict in the list pages,
 # which routes to the websites html file paths.
 def publish():
