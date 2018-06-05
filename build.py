@@ -1,3 +1,6 @@
+import glob
+
+
 pages = [
     # {
     #     "filename": "content/index.html",
@@ -24,6 +27,11 @@ pages = [
     #     "templated_content": None,
     # },
 ]
+
+def find_page():
+    all_html_files = glob.glob("content/*.html")
+    pages = [all_html_files]
+
 
 
 # The build_page function opens and reads the base.html file and the value of the key
