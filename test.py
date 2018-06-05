@@ -5,8 +5,8 @@
 import glob
 import os
 
-file_path = glob.glob("content/*.html")
-print(file_path)
+# file_path = glob.glob("content/*.html")
+# print(file_path)
 # file_name = os.path.basename(file_path)
 # print(file_name)
 # name_only, extension = os.path.splitext(file_name)
@@ -23,8 +23,12 @@ site = {
 
 def find_page():
     all_html_files = glob.glob("content/*.html")
-    site['pages'] = [all_html_files]
-    print(site['pages'])
+    for page in all_html_files:
+        print(page)
+        file_name = os.path.basename(page)
+        print(file_name)
+        name_only, extension = os.path.splitext(file_name)
+        print(name_only)
     # for page in site['pages']:
     #     print(str(site['pages']['filename'])
         # file_name = os.path.basename(file_path)
