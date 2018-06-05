@@ -1,29 +1,37 @@
+import glob
+
+
 pages = [
-    {
-        "filename": "content/index.html",
-        "title": "Tyler Holsclaw",
-        "filepath": "docs/index.html",
-        "templated_content": None,
-    },
-    {
-        "filename": "content/blog.html",
-        "title": "Logic at Work",
-        "filepath": "docs/blog.html",
-        "templated_content": None,
-    },
-    {
-        "filename": "content/projects.html",
-        "title": "Projects",
-        "filepath": "docs/projects.html",
-        "templated_content": None,
-    },
-    {
-        "filename": "content/connect.html",
-        "title": "Connect",
-        "filepath": "docs/connect.html",
-        "templated_content": None,
-    },
+    # {
+    #     "filename": "content/index.html",
+    #     "title": "Tyler Holsclaw",
+    #     "filepath": "docs/index.html",
+    #     "templated_content": None,
+    # },
+    # {
+    #     "filename": "content/blog.html",
+    #     "title": "Logic at Work",
+    #     "filepath": "docs/blog.html",
+    #     "templated_content": None,
+    # },
+    # {
+    #     "filename": "content/projects.html",
+    #     "title": "Projects",
+    #     "filepath": "docs/projects.html",
+    #     "templated_content": None,
+    # },
+    # {
+    #     "filename": "content/connect.html",
+    #     "title": "Connect",
+    #     "filepath": "docs/connect.html",
+    #     "templated_content": None,
+    # },
 ]
+
+def find_page():
+    all_html_files = glob.glob("content/*.html")
+    pages = [all_html_files]
+
 
 
 # The build_page function opens and reads the base.html file and the value of the key
