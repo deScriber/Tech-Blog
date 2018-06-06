@@ -14,23 +14,11 @@ def build_site():
     for page in all_html_files:
         file_name = os.path.basename(page)
         gather_content(page, file_name)
-        print(site['pages'])
         name_only, extension = os.path.splitext(file_name)
         format_title(name_only)
-        print(site['pages']['title'])
-# Reads content/template and templates pages.
-        # page_html = open(page).read()
-        # template_html = open(site['base']).read()
-        # template = Template(template_html)
-        # finished_page = template.render(
-        #     title = name_only,
-        #     content = page_html,
-        #     year = datetime.now().year
-        # )
-        # site['pages'] = {
-        #     "filename": str(page),
-        #     "filepath": "docs/"+str(file_name),
-        # }
+        template_content(page)
+        open(site['pages']["filepath"], "w+").write(site['pages']["templated_content"])
+
 
 # Pulls filename/filepath and stores as key/value pairs in a dict.
 def gather_content(page, file_name):
@@ -38,10 +26,9 @@ def gather_content(page, file_name):
         "filename": str(page),
         "filepath": "docs/"+str(file_name),
     }
-    # return(site['pages'])
 
 
-    # Formats Title Text
+# Formats Title Text
 def format_title(name_only):
     name_only = name_only.capitalize()
     if name_only == ("Index"):
@@ -49,22 +36,19 @@ def format_title(name_only):
     if name_only == ("Blog"):
         name_only = ("Logic at Work")
     site['pages'].update({"title": str(name_only)})
-    # print(site['pages'])
 
 
-        # print(finished_page)
-        # print(site['pages'])
-        # print(file_name)
-        # print(page)
-        # print(site['pages']['filepath'])
+# Compiles both content and template for each page, stores into key/value pair
+def template_content(page):
+    page_html = open(page).read()
+    template_html = open(site['base']).read()
+    template = Template(template_html)
+    finished_page = template.render(
+        title = site['pages']['title'],
+        content = page_html,
+        year = datetime.now().year
+    )
+    site['pages'].update({"templated_content": finished_page})
 
-
-    # for page in site['pages']:
-    #     print(str(site['pages']['filename'])
-        # file_name = os.path.basename(file_path)
-        # read_template = open("templates/base.html").read()
-        # read_content = open(file_path).read()
-        # add_content = read_template.replace("{{content}}", read_content)
-        # page["templated_content"] = add_content
-        # print(add_content)
-build_site()
+if __name__ == "__main__":
+    build_site()
