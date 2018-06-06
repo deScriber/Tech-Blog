@@ -15,20 +15,28 @@ import os
 
 site = {
     'base': 'templates/base.html',
-    'pages': [
-
-    ],
+    'pages': [],
 }
 
 
 def find_page():
     all_html_files = glob.glob("content/*.html")
     for page in all_html_files:
-        print(page)
         file_name = os.path.basename(page)
-        print(file_name)
         name_only, extension = os.path.splitext(file_name)
-        print(name_only)
+        name_only = name_only.capitalize()
+        if name_only == ("Index"):
+            name_only = ("Tyler Holsclaw")
+        site['pages'] = {"filename": str(page), "title": str(name_only), "filepath": "docs/"+str(file_name)}
+        print(site['pages'])
+        print(file_name)
+        print(page)
+
+
+
+
+
+
     # for page in site['pages']:
     #     print(str(site['pages']['filename'])
         # file_name = os.path.basename(file_path)
