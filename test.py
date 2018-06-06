@@ -14,17 +14,10 @@ def build_site():
     for page in all_html_files:
         file_name = os.path.basename(page)
         gather_content(page, file_name)
-        # print(site['pages'])
+        print(site['pages'])
         name_only, extension = os.path.splitext(file_name)
-        name_only = name_only.capitalize()
         format_title(name_only)
-        print(name_only)
-# Formats Title Text
-        # name_only = name_only.capitalize()
-        # if name_only == ("Index"):
-        #     name_only = ("Tyler Holsclaw")
-        # if name_only == ("Blog"):
-        #     name_only = ("Logic at Work")
+        print(site['pages']['title'])
 # Reads content/template and templates pages.
         # page_html = open(page).read()
         # template_html = open(site['base']).read()
@@ -45,16 +38,19 @@ def gather_content(page, file_name):
         "filename": str(page),
         "filepath": "docs/"+str(file_name),
     }
-    return(site['pages'])
+    # return(site['pages'])
 
 
     # Formats Title Text
 def format_title(name_only):
+    name_only = name_only.capitalize()
     if name_only == ("Index"):
         name_only = ("Tyler Holsclaw")
     if name_only == ("Blog"):
         name_only = ("Logic at Work")
-    return name_only
+    site['pages'].update({"title": str(name_only)})
+    # print(site['pages'])
+
 
         # print(finished_page)
         # print(site['pages'])
