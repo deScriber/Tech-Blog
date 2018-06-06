@@ -3,12 +3,14 @@ import os
 from jinja2 import Template
 from datetime import datetime
 
+
 site = {
     'base': 'templates/base.html',
     'pages': [],
 }
 
-
+# Main function, builds site by looking for content, template, and storing the
+# data for each page into their own dicts within the nested list site['pages']
 def build_site():
     all_html_files = glob.glob("content/*.html")
     for page in all_html_files:
@@ -50,5 +52,5 @@ def template_content(page):
     )
     site['pages'].update({"templated_content": finished_page})
 
-if __name__ == "__main__":
-    build_site()
+# if __name__ == "__main__":
+#     build_site()
