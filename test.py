@@ -37,7 +37,7 @@ def format_title(name_only):
         name_only = ("Tyler Holsclaw")
     if name_only == ("Blog"):
         name_only = ("Logic at Work")
-    site['pages'].update({"title": str(name_only)})
+    site['pages'].update({"title": name_only})
 
 
 # Compiles both content and template for each page, stores into key/value pair
@@ -52,5 +52,5 @@ def template_content(page):
     )
     site['pages'].update({"templated_content": finished_page})
 
-# if __name__ == "__main__":
-#     build_site()
+if __name__ == "__main__":
+    build_site()
