@@ -4,22 +4,28 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h1 class="title_text">
+          <span class="title_text">
 
-          Connect
+# Connect
 
-          </h1>
-          <img id="connect-profile" src="img/me-thumb.jpeg">
-          <p class="wooden_text">
+          </span>
+          <span id="connect-profile">
 
-          Tyler Holsclaw
+![alt text][connect_img]
 
-          </p>
+          </span>
+          <span class="wooden_text">
+
+### Tyler Holsclaw
+
+          </span>
         </div>
       </div>
     </div>
   </div>
 </header>
+
+[connect_img]: ../img/me-thumb.jpeg "Logo Title Text 2"
 
 <!-- About Section -->
 <section id="project-1" class="content-section text-center page_section">
@@ -58,26 +64,26 @@ Tyler is a systems administrator by day, a full stack web developer by night, an
 [Email Me]: mailto:tholsclaw@protonmail.com "Email"
 
 <!-- Contact Section -->
-<section id="contact" class="content-section text-center page_section">
+<section id="contact" class="content-section text-center page_section page_section">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
         <p class="normal_text"></p>
         <ul class="list-inline banner-social-buttons">
           <li class="list-inline-item">
-            <span class="btn btn-default btn-lg">
+            <a href="https://www.linkedin.com/in/tyler-holsclaw-224242b7" class="btn btn-default btn-lg">
               <i class="fa fa-linkedin fa-fw"></i>
               <span class="network-name strong_text"></span>
             </a>
           </li>
           <li class="list-inline-item">
-            <span class="btn btn-default btn-lg">
+            <a href="https://github.com/deScriber" class="btn btn-default btn-lg">
               <i class="fa fa-github fa-fw"></i>
               <span class="network-name strong_text"></span>
             </a>
           </li>
           <li class="list-inline-item">
-            <span class="btn btn-default btn-lg">
+            <a href="https://stackoverflow.com/users/9716042/describer" class="btn btn-default btn-lg">
               <i class="fa fa-stack-overflow fa-fw"></i>
               <span class="network-name strong_text"></span>
             </a>
@@ -88,6 +94,7 @@ Tyler is a systems administrator by day, a full stack web developer by night, an
   </div>
 </section>
 
-[Linkedin]: https://www.linkedin.com/in/tyler-holsclaw-224242b7
-[github]: https://github.com/deScriber
-[stackoverflow]: https://stackoverflow.com/users/9716042/describer
+
+[Linkedin]: https://www.linkedin.com/in/tyler-holsclaw-224242b7 "Linkedin"
+[github]: https://github.com/deScriber "github"
+[stackoverflow]: https://stackoverflow.com/users/9716042/describer "stackoverflow"

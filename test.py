@@ -1,5 +1,6 @@
 import glob
 import os
+import markdown
 from jinja2 import Template
 from datetime import datetime
 
@@ -20,7 +21,8 @@ def build_site():
         format_title(name_only)
         template_content(page)
         open(site['pages']["filepath"], "w+").write(site['pages']["templated_content"])
-
+        # print(site['pages']['title'])
+        # print(site['pages']['sub_title'])
 
 # Pulls filename/filepath and stores as key/value pairs in a dict.
 def gather_content(page, file_name):
@@ -33,11 +35,23 @@ def gather_content(page, file_name):
 # Formats Title Text
 def format_title(name_only):
     name_only = name_only.capitalize()
+    slogan = "Logic at Work"
+    title_img = ""
     if name_only == ("Index"):
         name_only = ("Tyler Holsclaw")
     if name_only == ("Blog"):
         name_only = ("Logic at Work")
-    site['pages'].update({"title": name_only})
+        slogan = "A Blog"
+    if name_only == ("Connect"):
+        slogan = "Tyler Holsclaw"
+        title_img = "<img id='connect-profile' src='img/me-thumb.jpeg'>"
+
+
+    site['pages'].update({
+        "title": name_only,
+        "sub_title": slogan,
+        "title_img": title_img,
+        })
 
 
 # Compiles both content and template for each page, stores into key/value pair
@@ -47,8 +61,11 @@ def template_content(page):
     template = Template(template_html)
     finished_page = template.render(
         title = site['pages']['title'],
+        sub_title = site['pages']['sub_title'],
+        title_img = site['pages']['title_img'],
         content = page_html,
-        year = datetime.now().year
+        year = datetime.now().year,
+
     )
     site['pages'].update({"templated_content": finished_page})
 
