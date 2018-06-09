@@ -2,6 +2,7 @@ import glob
 import os
 import markdown
 import jinja2
+import json
 from jinja2 import Template
 from datetime import datetime
 
@@ -10,6 +11,10 @@ site = {
     'base': 'templates/base.html',
     'pages': [],
 }
+
+site_template_parsed = json.load(open('site_template.json'))
+
+
 
 # Main function, builds site by looking for content, template, and storing the
 # data for each page into their own dicts within the nested list site['pages']
@@ -23,10 +28,11 @@ def build_site():
         # format_post(page, section_id)#TODO
         format_page(name_only)
         template_content(page)
-        # open(site['pages']["filepath"], "w+").write(site['pages']["templated_content"])
+        # open(site['pages']['filepath'], "w+").write(site['pages']["templated_content"])
         print(site['pages']['title'])
         print(site['pages']['sub_title'])
         print(site['pages']['bottom_post_button'])
+        print(site['pages']['html_structure'])
 
 # Pulls filename/filepath and stores as key/value pairs in a dict.
 def gather_content(page, file_name):
@@ -50,6 +56,7 @@ def gather_markdown(page, file_name):
 # Formats Page
 def format_page(name_only):
     name_only = name_only.capitalize()
+    site_template_parsed = json.load(open('site_template.json'))
     slogan = "Logic at Work"
     title_img = ""
     bottom_post_button = "<a href='#' class='btn btn-default btn-lg strong_text'>Back to Top</a>"
@@ -68,6 +75,7 @@ def format_page(name_only):
         "sub_title": slogan,
         "title_img": title_img,
         "bottom_post_button": bottom_post_button,
+        "html_structure":
         })
 
 
@@ -81,10 +89,10 @@ def template_content(page):
         title = site['pages']['title'],
         sub_title = site['pages']['sub_title'],
         title_img = site['pages']['title_img'],
-        post_title = site['pages']['post_title'],
-        post_content = site['pages']['post_content'],
-        recent_title = site['pages']['recent_title'],
-        recent_post = site['pages']['recent_post'],
+        # post_title = site['pages']['post_title'],
+        # post_content = site['pages']['post_content'],
+        # recent_title = site['pages']['recent_title'],
+        # recent_post = site['pages']['recent_post'],
         bottom_post_button = site['pages']["bottom_post_button"],
         year = datetime.now().year,
 
