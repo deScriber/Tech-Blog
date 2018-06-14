@@ -1,5 +1,5 @@
 <!-- About Section -->
-<section id="{{ section_id }}" class="content-section text-center page_section">
+<section id="{{ section_id[0] }}" class="content-section text-center page_section">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
@@ -10,15 +10,15 @@
       <div class="col-1">
       </div>
       <div class="card blog_card col-lg-10">
-        <h5 class="card-header item_text"> {{ post_title|first }} </h5>
+        <h5 class="card-header item_text"> {{ post_title[0] }} </h5>
         <div class="card-body">
           <span class="card-text subtle_text">
 
-{{ post_content|first }}
+{{ post_content[0] }}
 
           </span>
 
-{{ bottom_post_button }}
+{{ bottom_post_button[0] }}
 
         </div>
         <div class="col">

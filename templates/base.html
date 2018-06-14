@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="img/Draw_book.png">
     <title>
-      {{ title }}
+      {{ page_title[0]|title }}
     </title>
 
     <!-- Bootstrap core CSS -->
@@ -54,10 +54,10 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-8 mx-auto">
-              <h1 class="title_text">{{ title }}</h1>
+              <h1 class="title_text">{{ page_title[0]|title }}</h1>
               {{ title_img }}
-              <p class="wooden_text">{{ sub_title }}</p>
-              <a href="#project-1" class="btn btn-circle js-scroll-trigger">
+              <p class="wooden_text">{{ page_subtitle[0]|title }}</p>
+              <a href="#{{ section_id[0] }}" class="btn btn-circle js-scroll-trigger">
                 <i class="fa fa-angle-double-down animated"></i>
               </a>
             </div>
@@ -65,31 +65,6 @@
         </div>
       </div>
     </header>
-
-    <section id="{{ section_id }}" class="content-section text-center page_section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="strong_text"></h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-1">
-          </div>
-          <div class="card blog_card col-lg-10">
-            <h5 class="card-header item_text">{{ post_title }}</h5>
-            <div class="card-body card-text subtle_text">
-              {{ post_content }}
-            </div>
-            {{ bottom_post_button }}
-            <div class="col">
-            </div>
-          </div>
-          <div class="col-1">
-          </div>
-        </div>
-      </div>
-    </section>
 
 
 {{ content }} <!-- #TODO create for loop in jinja2 to template in body -->
