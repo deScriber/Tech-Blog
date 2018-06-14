@@ -1,25 +1,25 @@
 <!-- Blog 1 -->
-<section id="{{ section_id }}" class="content-section text-center page_section">
+<section id="{{ section_id[0] }}" class="content-section text-center page_section">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
-        <h2 class="strong_text">{{ post_number }}</h2>
+        <h2 class="strong_text">{{ post_number[0] }}</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-1">
       </div>
       <div class="card blog_card col-lg-10">
-        <h5 class="card-header item_text">{{ post_title|first }}</h5>
+        <h5 class="card-header item_text">{{ post_title[0] }}</h5>
         <div class="card-body">
-          <h5 class="card-title sub_text">{{ post_subtitle|first }}</h5>
+          <h5 class="card-title sub_text">{{ post_subtitle[0] }}</h5>
           <span class="card-text normal_text">
 
-{{ post_content|first }}
+{{ post_content[0] }}
 
           </span>
 
-{{ bottom_post_button }}
+{{ bottom_post_button['default'] }}
 
         </div>
         <div class="col">
@@ -32,27 +32,27 @@
 </section>
 
 <!-- Blog 2 -->
-<section id="{{ section_id }}" class="projects-section content-section text-center page_section">
+<section id="{{ section_id[1] }}" class="projects-section content-section text-center page_section">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
-        <h2 class="strong_text">{{ post_number }}</h2>
+        <h2 class="strong_text">{{ post_number[1] }}</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-1">
       </div>
       <div class="card blog_card col-lg-10">
-        <h5 class="card-header item_text">{{ post_title|second }}</h5>
+        <h5 class="card-header item_text">{{ post_title[1] }}</h5>
         <div class="card-body">
-          <h5 class="card-title sub_text">{{ post_subtitle|second }}</h5>
+          <h5 class="card-title sub_text">{{ post_subtitle[1] }}</h5>
           <span class="card-text normal_text">
 
-{{ post_content|second }}
+{{ post_content[1] }}
 
           </span>
 
-{{ bottom_post_button }}
+{{ bottom_post_button['default'] }}
 
         </div>
         <div class="col">
@@ -66,27 +66,27 @@
 
 <!-- Blog 3 -->
 
-<section id="{{ section_id }}" class="projects-section content-section text-center page_section">
+<section id="{{ section_id[2] }}" class="projects-section content-section text-center page_section">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
-        <h2 class="strong_text">{{ post_number }}</h2>
+        <h2 class="strong_text">{{ post_number[2] }}</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-1">
       </div>
       <div class="card blog_card col-lg-10">
-        <h5 class="card-header item_text">{{ post_title|third }}</h5>
+        <h5 class="card-header item_text">{{ post_title[2] }}</h5>
         <div class="card-body">
-          <h5 class="card-title sub_text">{{ post_subtitle|third }}</h5>
+          <h5 class="card-title sub_text">{{ post_subtitle[2] }}</h5>
           <span class="card-text normal_text">
 
-{{ post_content|third }}
+{{ post_content[2] }}
 
           </span>
 
-{{ bottom_post_button }}
+{{ bottom_post_button['default'] }}
 
         </div>
         <div class="col">
