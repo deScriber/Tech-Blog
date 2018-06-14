@@ -36,7 +36,6 @@ def gather_path(page, name_only):
         "page_template": "templates/"+str(name_only)+".html",
         "filename": str(page),
         "filepath": "docs/"+str(name_only)+".html",
-        "current_page": name_only,
     }
 
 
@@ -62,7 +61,7 @@ def gather_markdown(page, name_only):
         }
     my_pages.update({
         name_only: {
-            "page_template": "templates/"+str(name_only)+".html",
+            "filepath": "docs/"+str(name_only)+".html",
             "page_title": page_title,
             "page_subtitle": page_subtitle,
             "post_title": post_title,
@@ -85,18 +84,18 @@ def template_template(page, name_only):
         year=datetime.now().year,
         page_title=my_pages[name_only]['page_title'],
         page_subtitle=my_pages[name_only]['page_subtitle'],
+        section_id=my_pages[name_only]['section_id'],
     )
     site.update({
         name_only+"_template": finished_page_template
     })
 
 
+# add's final template and outputs pages
 def final_template(page_dict, page_dict_list):
     for page in page_dict_list:
         page_html = site[page+"_template"]
-        print(page_html)
         template = Template(page_html)
-        bottom_post_button = "<a href='#' class='btn btn-default btn-lg strong_text'>"
         finished_page_template = template.render(
             section_id=site['pages'][page]['section_id'],
             page_title=site['pages'][page]['page_title'],
@@ -107,10 +106,9 @@ def final_template(page_dict, page_dict_list):
             post_number=site['pages'][page]['post_number'],
             bottom_post_button=site['pages'][page]['bottom_post_button'],
         )
-        site.update({
-            page+"_template": finished_page_template
-        })
-        print(site["connect_template"])
+        # print(site['pages'][page]['filepath'])
+        open(site['pages'][page]['filepath'], "w+").write(finished_page_template)
+
 
 if __name__ == "__main__":
     build_site()
